@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Resdiktek Karya Persada - Solusi Terintegrasi Kontraktor, EPC & Pengembangan SDM</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#2563eb',
+                            600: '#0B4C9D', // Main logo deep blue
+                            700: '#093c7d',
+                            800: '#0a3061',
+                            900: '#0f172a',
+                        },
+                        cyanAccent: '#00b4d8'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(11, 76, 157, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-header {
+            background: rgba(15, 23, 42, 0.88);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #0B4C9D 0%, #2563eb 50%, #00b4d8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .text-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .float-pulse {
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 antialiased selection:bg-brand-600 selection:text-white">
+
+    <!-- Header / Navigasi Sticky -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-slate-200/80 dark:border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo Perusahaan SVG Presisi -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-11 h-11 flex items-center justify-center bg-brand-600 rounded-xl shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg class="w-8 h-8 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 25L45 10V90L15 75V25Z" fill="white" fill-opacity="0.9"/>
+                        <path d="M50 10L85 25V75L50 90V10Z" fill="white"/>
+                        <!-- Elemen Roda Gigi & Sirkuit Tech -->
+                        <circle cx="60" cy="35" r="4" fill="#0B4C9D"/>
+                        <circle cx="60" cy="48" r="4" fill="#0B4C9D"/>
+                        <circle cx="60" cy="61" r="4" fill="#0B4C9D"/>
+                        <path d="M64 35H80" stroke="#0B4C9D" stroke-width="3.5" stroke-linecap="round"/>
+                        <path d="M64 48H80" stroke="#0B4C9D" stroke-width="3.5" stroke-linecap="round"/>
+                        <path d="M64 61H80" stroke="#0B4C9D" stroke-width="3.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg font-black tracking-tight text-slate-900 dark:text-white leading-tight">RESDIKTEK</span>
+                    <span class="text-[10px] font-extrabold text-brand-600 dark:text-brand-400 tracking-widest uppercase">Karya Persada</span>
+                </div>
+            </a>
+
+            <!-- Menu Navigasi Desktop -->
+            <nav class="hidden md:flex items-center gap-7 font-medium text-sm">
+                <a href="#tentang" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Tentang Kami</a>
+                <a href="#layanan" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Layanan Utama</a>
+                <a href="#keunggulan" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Keunggulan</a>
+                <a href="#proyek" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Portofolio</a>
+                <a href="#kontak" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Kontak & Lokasi</a>
+            </nav>
+
+            <!-- Aksi & Quick Call Button -->
+            <div class="hidden md:flex items-center gap-3">
+                <button id="themeToggle" class="p-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Beralih Mode Gelap/Terang">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+                <a href="https://wa.me/6283894456000" target="_blank" class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 active:bg-brand-800 rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40 transition-all duration-200 gap-2">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>083894456000</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Switch -->
+            <div class="flex items-center md:hidden gap-2">
+                <button id="themeToggleMobile" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                </button>
+                <button id="menuBtn" class="p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="#tentang" class="block px-3 py-2 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tentang Kami</a>
+            <a href="#layanan" class="block px-3 py-2 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Layanan Utama</a>
+            <a href="#keunggulan" class="block px-3 py-2 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Keunggulan</a>
+            <a href="#proyek" class="block px-3 py-2 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Portofolio</a>
+            <a href="#kontak" class="block px-3 py-2 rounded-lg font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Kontak & Lokasi</a>
+            <a href="https://wa.me/6283894456000" target="_blank" class="flex items-center justify-center gap-2 w-full text-center px-4 py-3 font-bold text-white bg-emerald-600 rounded-xl shadow-md">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Hubungi 083894456000</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-grid-pattern">
+        <!-- Glow Orbs BG -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-80 h-80 bg-cyan-400/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Headline Left -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-900/50 border border-brand-200 dark:border-brand-700 text-brand-700 dark:text-brand-300 text-xs font-bold uppercase tracking-wider mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+                        Solusi Teknik & Edukasi Industri
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-6">
+                        Solusi Terintegrasi Kontraktor, EPC & <span class="text-gradient">Pengembangan SDM Berkualitas</span>
+                    </h1>
+                    <p class="text-slate-600 dark:text-slate-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        PT Resdiktek Karya Persada menghadirkan keunggulan layanan rekayasa konstruksi, pengadaan sistem EPC modern, riset teknologi teknik, hingga sertifikasi dan pelatihan SDM industri berstandar nasional & internasional.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
+                        <a href="#kontak" class="w-full sm:w-auto px-7 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-brand-600/30 hover:shadow-brand-600/40 transition-all text-center flex items-center justify-center gap-2">
+                            <span>Hubungi Kami</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#layanan" class="w-full sm:w-auto px-7 py-3.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm transition-all text-center flex items-center justify-center gap-2">
+                            <span>Lihat Layanan Utama</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <!-- Counter Statistik -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-slate-200 dark:border-slate-800">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">100+</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-1">Proyek Selesai</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">99.8%</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-1">Kepuasan Klien</div>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">1,500+</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-1">Tenaga Ahli Terlatih</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-brand-600 to-cyan-500 rounded-3xl blur-xl opacity-30"></div>
+                        <div class="relative bg-white dark:bg-slate-900 p-3.5 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=800&q=80" alt="Resdiktek Engineering Project" class="rounded-xl w-full h-[400px] object-cover shadow-inner">
+                            
+                            <!-- Overlay Badge 1 -->
+                            <div class="absolute -bottom-5 -left-5 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3">
+                                <div class="p-3 bg-brand-100 dark:bg-brand-900/50 text-brand-600 rounded-lg">
+                                    <i class="fa-solid fa-shield-halved text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Keselamatan Kerja</div>
+                                    <div class="text-sm font-extrabold text-slate-800 dark:text-slate-100">Standar K3 / HSE 100%</div>
+                                </div>
+                            </div>
+
+                            <!-- Overlay Badge 2 -->
+                            <div class="absolute -top-5 -right-5 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3">
+                                <div class="p-3 bg-cyan-100 dark:bg-cyan-950 text-cyan-600 rounded-lg">
+                                    <i class="fa-solid fa-gears text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Teknologi Modern</div>
+                                    <div class="text-sm font-extrabold text-slate-800 dark:text-slate-100">Riset & EPC Integratif</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Tentang Kami -->
+    <section id="tentang" class="py-24 bg-white dark:bg-slate-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <div>
+                    <span class="text-brand-600 dark:text-brand-400 font-bold text-xs tracking-widest uppercase">Tentang PT Resdiktek Karya Persada</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2 mb-6 leading-tight">
+                        Komitmen Utama Menuju Inovasi, Kualitas, dan Keberlanjutan Industri
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-6">
+                        <strong class="text-slate-900 dark:text-white">PT Resdiktek Karya Persada</strong> berdiri sebagai mitra strategis industri terkemuka di Indonesia. Kami memadukan kapabilitas teknis di bidang <strong class="text-slate-900 dark:text-white">General Contractor & EPC</strong> dengan riset teknologi terapan serta program edukasi dan sertifikasi SDM secara menyeluruh.
+                    </p>
+
+                    <!-- Interactive Visi Misi Tabs -->
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 mb-8">
+                        <div class="flex border-b border-slate-200 dark:border-slate-700 mb-4 gap-6">
+                            <button id="btnVisi" onclick="switchTab('visi')" class="pb-2 font-bold text-sm border-b-2 border-brand-600 text-brand-600 dark:text-brand-400 transition-all">Visi Perusahaan</button>
+                            <button id="btnMisi" onclick="switchTab('misi')" class="pb-2 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-all">Misi Utama</button>
+                        </div>
+                        <div id="tabVisi" class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Menjadi penyedia jasa kontraktor, EPC, dan pusat pengembangan sumber daya manusia industri yang tepercaya, berdaya saing global, serta berfokus pada inovasi dan standar keselamatan tertinggi.
+                        </div>
+                        <div id="tabMisi" class="hidden text-slate-600 dark:text-slate-300 text-sm leading-relaxed space-y-2">
+                            <p>• Mengirimkan pengerjaan proyek konstruksi & EPC tepat waktu, tepat mutu, dan efisien.</p>
+                            <p>• Mengembangkan riset teknik terapan untuk efisiensi rantai pasok dan pasokan industri.</p>
+                            <p>• Mencetak sumber daya manusia berkeahlian tinggi melalui sertifikasi dan pelatihan terakreditasi.</p>
+                        </div>
+                    </div>
+
+                    <!-- 4 Nilai Utama Perusahaan -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-lightbulb text-brand-600 dark:text-brand-400 text-lg"></i>
+                            <span class="text-xs font-bold text-slate-800 dark:text-slate-200">Inovasi Berkelanjutan</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-award text-brand-600 dark:text-brand-400 text-lg"></i>
+                            <span class="text-xs font-bold text-slate-800 dark:text-slate-200">Kualitas Standar Mutu</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-handshake text-brand-600 dark:text-brand-400 text-lg"></i>
+                            <span class="text-xs font-bold text-slate-800 dark:text-slate-200">Integritas Bisnis</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-user-shield text-brand-600 dark:text-brand-400 text-lg"></i>
+                            <span class="text-xs font-bold text-slate-800 dark:text-slate-200">Keselamatan K3 / HSE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Image -->
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Resdiktek Team Expertise" class="rounded-2xl shadow-xl w-full object-cover h-[500px]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent rounded-2xl flex items-end p-8">
+                        <p class="text-white text-sm font-semibold">Menggabungkan keahlian teknik tingkat tinggi dengan dedikasi penuh pada keberhasilan setiap klien.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Layanan Utama -->
+    <section id="layanan" class="py-24 bg-slate-100/70 dark:bg-slate-950 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 dark:text-brand-400 font-bold text-xs tracking-widest uppercase">Pilar Layanan Perusahaan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2 mb-4">
+                    Layanan Unggulan Terintegrasi
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-base">
+                    Kami menyediakan ekosistem solusi lengkap untuk menjawab kebutuhan bidang konstruksi, teknologi rekayasa, dan pengembangan kapabilitas SDM.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Service Card 1 -->
+                <div class="bg-white dark:bg-slate-900 p-7 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-helmet-safety text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">General Contractor & EPC</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-6">
+                            Layanan rancang bangun, rekayasa sipil, gedung, infrastruktur, serta pengadaan proyek turnkey (Engineering, Procurement, Construction).
+                        </p>
+                    </div>
+                    <button onclick="openModal('General Contractor & EPC', 'PT Resdiktek Karya Persada melayani pekerjaan konstruksi sipil, bangunan komersial & industri, jaringan jalan, serta instalasi sistem mekanikal dan elektrikal dengan pengawasan mutu terstandarisasi.')" class="inline-flex items-center text-brand-600 dark:text-brand-400 font-bold text-xs group-hover:underline">
+                        <span>Detail Pelaksanaan</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white dark:bg-slate-900 p-7 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-6 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-microchip text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Riset & Konsultasi Teknik</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-6">
+                            Studi kelayakan teknis, riset terapan sistem industri, analisis kelayakan rekayasa, dan konsultasi efisiensi operasional.
+                        </p>
+                    </div>
+                    <button onclick="openModal('Riset & Konsultasi Teknik', 'Konsultasi riset kami membantu perusahaan mengoptimalkan proses kerja teknik, audit sistem, dan penerapan inovasi rekayasa tepat guna untuk produktivitas maksimal.')" class="inline-flex items-center text-cyan-600 dark:text-cyan-400 font-bold text-xs group-hover:underline">
+                        <span>Detail Pelaksanaan</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white dark:bg-slate-900 p-7 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-user-graduate text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Pendidikan & SDM Industri</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-6">
+                            Penyelenggaraan sertifikasi profesi, workshop teknis K3, dan pelatihan peningkatan keahlian SDM bidang konstruksi & industri.
+                        </p>
+                    </div>
+                    <button onclick="openModal('Pendidikan, Pelatihan & Pengembangan SDM', 'Program pelatihan kami didesain terstruktur untuk mencetak tenaga ahli bersertifikat resmi, memahami keselamatan kerja K3, serta siap menjawab dinamika industri.')" class="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-bold text-xs group-hover:underline">
+                        <span>Detail Pelaksanaan</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white dark:bg-slate-900 p-7 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-boxes-packing text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Procurement & Supply Chain</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-6">
+                            Pengadaan bahan material berkualitas tinggi, perlengkapan teknis, alat berat, dan manajemen pasokan industri.
+                        </p>
+                    </div>
+                    <button onclick="openModal('Procurement & Supply Chain Management', 'Layanan pengadaan kami menjamin ketersediaan material industri tepat waktu, harga kompetitif, serta jaminan kualitas bahan baku standar proyek nasional.')" class="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-bold text-xs group-hover:underline">
+                        <span>Detail Pelaksanaan</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Mengapa Memilih Kami -->
+    <section id="keunggulan" class="py-20 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-brand-700 via-brand-600 to-cyan-700 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl">
+                <div class="relative z-10">
+                    <span class="text-cyan-200 font-bold text-xs uppercase tracking-widest">Keunggulan Perusahaan</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-8">Mengapa PT Resdiktek Karya Persada Terdepan?</h2>
+                    
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                            <i class="fa-solid fa-clock-check text-2xl text-cyan-300 mb-3"></i>
+                            <h4 class="font-bold text-base mb-1">Tepat Waktu & Anggaran</h4>
+                            <p class="text-slate-200 text-xs leading-relaxed">Penyelesaian proyek secara akurat sesuai dengan kesepakatan target.</p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                            <i class="fa-solid fa-certificate text-2xl text-cyan-300 mb-3"></i>
+                            <h4 class="font-bold text-base mb-1">Tim Bersertifikat</h4>
+                            <p class="text-slate-200 text-xs leading-relaxed">Dukungan insinyur dan ahli profesional berpengalaman di bidangnya.</p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                            <i class="fa-solid fa-diagram-project text-2xl text-cyan-300 mb-3"></i>
+                            <h4 class="font-bold text-base mb-1">Pendekatan Integratif</h4>
+                            <p class="text-slate-200 text-xs leading-relaxed">Satu pintu solusi untuk kebutuhan EPC, riset, pengadaan, dan SDM.</p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                            <i class="fa-solid fa-headset text-2xl text-cyan-300 mb-3"></i>
+                            <h4 class="font-bold text-base mb-1">Dukungan Fast Response</h4>
+                            <p class="text-slate-200 text-xs leading-relaxed">Komunikasi responsif siap membantu Anda melalui nomor 083894456000.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Portofolio Proyek -->
+    <section id="proyek" class="py-24 bg-slate-50 dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-600 dark:text-brand-400 font-bold text-xs tracking-widest uppercase">Dokumentasi Kerja</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">
+                        Portofolio & Rekam Jejak Proyek
+                    </h2>
+                </div>
+                <!-- Filter Portfolio -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                    <button onclick="filterPortfolio('all')" class="filter-btn active px-4 py-2 text-xs font-bold rounded-lg bg-brand-600 text-white transition-all">Semua</button>
+                    <button onclick="filterPortfolio('konstruksi')" class="filter-btn px-4 py-2 text-xs font-bold rounded-lg bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-all">Konstruksi</button>
+                    <button onclick="filterPortfolio('epc')" class="filter-btn px-4 py-2 text-xs font-bold rounded-lg bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-all">EPC & Rekayasa</button>
+                    <button onclick="filterPortfolio('sdm')" class="filter-btn px-4 py-2 text-xs font-bold rounded-lg bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-all">Pelatihan SDM</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Portfolio 1 -->
+                <div class="port-item konstruksi bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800 group">
+                    <div class="relative overflow-hidden h-52">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Konstruksi Industri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-brand-600 text-white text-[10px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-full">Konstruksi Sipil</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white mb-2">Pembangunan Infrastruktur Gedung Industri Terpadu</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Pengerjaan struktur beton, pondasi khusus, dan jalan akses.</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio 2 -->
+                <div class="port-item epc bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800 group">
+                    <div class="relative overflow-hidden h-52">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Instalasi EPC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-cyan-600 text-white text-[10px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-full">EPC System</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white mb-2">Instalasi Pipa & Kelistrikan Pabrik Pengolahan</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Rancang bangun sistem rekayasa pipa dan gardu kelistrikan.</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio 3 -->
+                <div class="port-item sdm bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800 group">
+                    <div class="relative overflow-hidden h-52">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Pelatihan SDM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-full">Pelatihan SDM</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white mb-2">Sertifikasi K3 Keselamatan Kerja Bagi Teknisi</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Pelatihan intensif bagi puluhan praktisi teknik dan pengawas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Kontak & Lokasi Google Maps -->
+    <section id="kontak" class="py-24 bg-white dark:bg-slate-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Info Kontak Resmi & Google Maps Link -->
+                <div class="lg:col-span-5">
+                    <span class="text-brand-600 dark:text-brand-400 font-bold text-xs tracking-widest uppercase">Hubungi Kami</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-2 mb-6">Informasi Kontak & Lokasi Perusahaan</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-8 leading-relaxed">
+                        Silakan hubungi tim kami melalui telepon, WhatsApp, atau kunjungi lokasi kantor resmi PT Resdiktek Karya Persada.
+                    </p>
+
+                    <div class="space-y-6 mb-8">
+                        <!-- Telepon & WA Card -->
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
+                            <div class="p-3 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 rounded-xl">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Nomor Telepon / WhatsApp Resmi</h4>
+                                <div class="flex gap-3 mt-1">
+                                    <a href="tel:083894456000" class="text-brand-600 dark:text-brand-400 font-extrabold text-sm hover:underline">083894456000</a>
+                                    <span class="text-slate-400">•</span>
+                                    <a href="https://wa.me/6283894456000" target="_blank" class="text-emerald-600 dark:text-emerald-400 font-extrabold text-sm hover:underline">Chat WA</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location Card dengan Direct Maps Link -->
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-start gap-4">
+                            <div class="p-3 bg-brand-100 dark:bg-brand-950 text-brand-600 rounded-xl mt-1">
+                                <i class="fa-solid fa-location-dot text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Alamat Google Maps Perusahaan</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs mt-1 leading-relaxed">
+                                    PT. Resdiktek Karya Persada
+                                </p>
+                                <a href="https://www.google.com/maps/place/PT.+Resdiktek+Karya+Persada/@-8.2026755,114.3690557,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd1459a02183611:0xf770ad5136f25aed!8m2!3d-8.2026808!4d114.3716306!16s%2Fg%2F11x_qz15jg" target="_blank" class="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl shadow transition-all">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                    <span>Buka di Google Maps</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Embed Mini Google Maps Visual -->
+                    <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.883733072221!2d114.3690557!3d-8.2026755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1459a02183611%3A0xf770ad5136f25aed!2sPT.%20Resdiktek%20Karya%20Persada!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" class="w-full h-48 border-0" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Form Konsultasi Pesan -->
+                <div class="lg:col-span-7">
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-8 sm:p-10 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Form Konsultasi Cepat</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Isi formulir di bawah ini dan tim kami akan segera menghubungi Anda kembali.</p>
+                        
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Nama Lengkap</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600" placeholder="Nama Anda">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Email</label>
+                                    <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600" placeholder="nama@perusahaan.com">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Nomor WhatsApp</label>
+                                    <input type="tel" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600" placeholder="083894456000">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Kategori Layanan</label>
+                                    <select class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600">
+                                        <option>General Contractor & EPC</option>
+                                        <option>Riset & Konsultasi Teknik</option>
+                                        <option>Pendidikan & Pelatihan SDM</option>
+                                        <option>Procurement & Supply Chain</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Detail Kebutuhan / Pesan</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-600" placeholder="Tuliskan gambaran proyek atau pertanyaan Anda..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane text-sm"></i>
+                                <span>Kirim Pesan Konsultasi</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6283894456000?text=Halo%20PT%20Resdiktek%20Karya%20Persada,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20Anda." target="_blank" class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl float-pulse transition-transform hover:scale-110" title="Chat WhatsApp 083894456000">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Footer Profesional -->
+    <footer class="bg-slate-950 text-slate-400 border-t border-slate-800 text-xs py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" viewBox="0 0 100 100" fill="none">
+                                <path d="M15 25L45 10V90L15 75V25Z" fill="white"/>
+                                <path d="M50 10L85 25V75L50 90V10Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="text-base font-extrabold text-white tracking-wide">PT RESDIKTEK KARYA PERSADA</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed max-w-sm mb-4">
+                        Mitra tepercaya untuk layanan General Contractor, sistem EPC, riset rekayasa teknik, supply chain material, serta edukasi dan pengembangan SDM industri.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold mb-3 uppercase tracking-wider">Navigasi Utama</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#tentang" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="#layanan" class="hover:text-white transition-colors">Layanan Utama</a></li>
+                        <li><a href="#keunggulan" class="hover:text-white transition-colors">Keunggulan Perusahaan</a></li>
+                        <li><a href="#proyek" class="hover:text-white transition-colors">Portofolio Proyek</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold mb-3 uppercase tracking-wider">Hubungi Langsung</h5>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="tel:083894456000" class="hover:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-brand-400"></i>
+                                <span>083894456000</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/6283894456000" target="_blank" class="hover:text-white flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                                <span>WhatsApp Resdiktek</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.google.com/maps/place/PT.+Resdiktek+Karya+Persada/@-8.2026755,114.3690557,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd1459a02183611:0xf770ad5136f25aed!8m2!3d-8.2026808!4d114.3716306!16s%2Fg%2F11x_qz15jg" target="_blank" class="hover:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-map-pin text-cyan-400"></i>
+                                <span>Lokasi Google Maps</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+                <p>&copy; 2026 PT Resdiktek Karya Persada. Hak Cipta Dilindungi Undang-Undang.</p>
+                <div class="flex gap-4">
+                    <a href="#kontak" class="hover:text-white">Kontak</a>
+                    <a href="https://wa.me/6283894456000" class="hover:text-white">Bantuan WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Modal Popup -->
+    <div id="serviceModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-8 border border-slate-200 dark:border-slate-800 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 id="modalTitle" class="text-xl font-bold text-slate-900 dark:text-white mb-4"></h3>
+            <p id="modalContent" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6"></p>
+            <div class="flex justify-end gap-3">
+                <button onclick="closeModal()" class="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold">Tutup</button>
+                <a href="https://wa.me/6283894456000" target="_blank" class="px-5 py-2.5 bg-brand-600 text-white rounded-xl text-xs font-bold hover:bg-brand-700">Konsultasikan di WA</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Logic -->
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // Dark / Light Switcher
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeToggleMobileBtn = document.getElementById('themeToggleMobile');
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+        // Mobile Menu Drawer
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tab Visi Misi
+        function switchTab(tab) {
+            const tabVisi = document.getElementById('tabVisi');
+            const tabMisi = document.getElementById('tabMisi');
+            const btnVisi = document.getElementById('btnVisi');
+            const btnMisi = document.getElementById('btnMisi');
+
+            if (tab === 'visi') {
+                tabVisi.classList.remove('hidden');
+                tabMisi.classList.add('hidden');
+                btnVisi.classList.add('border-brand-600', 'text-brand-600', 'dark:text-brand-400');
+                btnVisi.classList.remove('border-transparent', 'text-slate-500');
+                btnMisi.classList.remove('border-brand-600', 'text-brand-600', 'dark:text-brand-400');
+                btnMisi.classList.add('border-transparent', 'text-slate-500');
+            } else {
+                tabVisi.classList.add('hidden');
+                tabMisi.classList.remove('hidden');
+                btnMisi.classList.add('border-brand-600', 'text-brand-600', 'dark:text-brand-400');
+                btnMisi.classList.remove('border-transparent', 'text-slate-500');
+                btnVisi.classList.remove('border-brand-600', 'text-brand-600', 'dark:text-brand-400');
+                btnVisi.classList.add('border-transparent', 'text-slate-500');
+            }
+        }
+
+        // Modal Handler
+        function openModal(title, text) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalContent').innerText = text;
+            const modal = document.getElementById('serviceModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('serviceModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Filter Portfolio
+        function filterPortfolio(category) {
+            const items = document.querySelectorAll('.port-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white');
+                btn.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+            });
+
+            event.target.classList.add('bg-brand-600', 'text-white');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Form Submit
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan konsultasi Anda telah kami terima. Tim PT Resdiktek Karya Persada akan segera menghubungi Anda di 083894456000.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
